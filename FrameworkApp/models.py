@@ -4,7 +4,3 @@ from django.db import models
 class ItemGood(models.Model):
 	name = models.CharField(max_length=200, blank=True, null=True)
 
-
-
-class ItemGood2(models.Model):
-	name = models.CharField(max_length=200, blank=True, null=True)
