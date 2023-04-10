@@ -8,15 +8,6 @@ from rest_framework import permissions
 from .serializers import UserSerializer, GroupSerializer
 
 
-# Create your views here.
-
-def home(request):
-	return HttpResponse('''
-		<h1>See, Its working</h1>
-		''')
-
-
-
 class UserViewSet(viewsets.ModelViewSet):
 	queryset = User.objects.all().order_by('-date_joined')
 	serializer_class = UserSerializer
