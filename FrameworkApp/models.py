@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils.translation import gettext_lazy as _
+from .constants import *
 
 
 # Create your models here.
@@ -21,22 +21,6 @@ class Education(models.Model):
 
 
 
-class Sexuality(models.TextChoices):
-	MALE = "M", _("Male")
-	FEMALE = "F", _("Female")
-	TRANSGENDER = "T", _("Transgender")
-
-
-class Purpose(models.TextChoices):
-	CHAT = "C", _("Chat")
-	FRIENDSHIP = "F", _("Friendship")
-	DATE = "D", _("Date")
-	RELATIONSHIP = "R", _("Relationship")
-
-
-
-
-
 class ProfileImages(models.Model):
 	image_one = models.ImageField()
 	image_two = models.ImageField()
@@ -47,7 +31,6 @@ class ProfileImages(models.Model):
 
 	def __repr__(self):
 		return f'{self.id}'
-
 
 
 
@@ -66,23 +49,24 @@ class PersonalInformation(models.Model):
 	mobile_number = models.PositiveIntegerField(min=6000000000, max=9999999999)
 	mobile_number_verified = models.BooleanField(default=False)
 	sexuality = models.CharField(max_length=1, choices=Sexuality.choices, default=Sexuality.MALE)
-	purpose = models.CharField(max_length=1, choices=Purpose.choices, default=Purpose.)
-	activity_interests = models.ChoiceField([])
-	profile_interest = models.CharField([])
+	purpose = models.CharField(max_length=1, choices=Purpose.choices, default=Purpose.CHAT)
+	activity_interests = models.ChoiceField(max_length=1, choices=Activity.choices, default=Activity.RUNNING)
+	profile_interest = models.CharField(max_length=2, choices=ProfileInterest.choices, default=ProfileInterest.MALE_AND_FEMALE_BOTH)
 	images = models.ForeignKey('ProfileImages')
 	height = models.PositiveIntegerField()
-	children = models.ChoiceField([])
-	drinking = models.ChoiceField([])
-	smoking = models.ChoiceField([])
-	languages = models.ChoiceField([])
-	relationship = models.ChoiceField([])
-	start_sign = models.ChoiceField([])
+	children = models.ChoiceField(max_length=3, choices=ChildrenInterest.choices, default=ChildrenInterest.DONT_WANNA_TELL)
+	drinking = models.ChoiceField(max_length=3, choices=DrinkingInterest.choices, default=DrinkingInterest.NEVER)
+	smoking = models.ChoiceField(max_length=3, choices=SmokingInterest.choices, default=SmokingInterest.NEVER)
+	languages = models.ChoiceField(max_length=20, choices=Languages.choices, default=Languages.HINDI)
+	relationship_status = models.ChoiceField(max_length=1, choices=RelationshipStatus.choices, default=RelationshipStatus.SINGLE)
+	start_sign = models.ChoiceField(max_length=3, choices=StarSign.choices, default=StarSign.Libra)
 	pets = models.ChoiceField([])
 	religion = models.ChoiceField([])
 	personality = models.ChoiceField([])
 	
 	def __repr__(self):
 		return f'{self.personal_information.f_name}{self.personal_information.l_name}'
+
 
 
 class Profile(models.Model):
@@ -97,4 +81,3 @@ class Profile(models.Model):
 	def __repr__(self):
 		return f'{self.user.username} - {self.personal_information.f_name}{self.personal_information.l_name}'
 
-	
