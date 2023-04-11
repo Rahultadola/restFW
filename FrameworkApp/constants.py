@@ -52,3 +52,20 @@ class RelationshipStatus():
 
 class StarSign():
 	LIBRA = "LIB", __RT__("Libra")
+
+class PetsInterest():
+	NO = "N", __RT__("Not interested")
+	DOG = "D", __RT__("Dog lover")
+	CAT = "C", __RT__("Cat lover")
+
+
+class Religion():
+	NOT_STARTED = "NOT_STARTED", __RT__("Not started")
+	HINDU = "HINDU", __RT__("Hindu")
+	MUSLIM = "MUSLIM", __RT__("Muslim")
+	OTHER = "OTHER", __RT__("Other")
+
+class Personality():
+	INTROVERT = "INTROVERT", __RT__("Introvert")
+	EXTROVERT = "EXTROVERT", __RT__("Extrovert")
+	AMBIVERT = "AMBIVERT", __RT__("Ambivert")

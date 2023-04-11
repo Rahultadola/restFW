@@ -59,10 +59,10 @@ class PersonalInformation(models.Model):
 	smoking = models.ChoiceField(max_length=3, choices=SmokingInterest.choices, default=SmokingInterest.NEVER)
 	languages = models.ChoiceField(max_length=20, choices=Languages.choices, default=Languages.HINDI)
 	relationship_status = models.ChoiceField(max_length=1, choices=RelationshipStatus.choices, default=RelationshipStatus.SINGLE)
-	start_sign = models.ChoiceField(max_length=3, choices=StarSign.choices, default=StarSign.Libra)
-	pets = models.ChoiceField([])
-	religion = models.ChoiceField([])
-	personality = models.ChoiceField([])
+	start_sign = models.ChoiceField(max_length=3, choices=StarSign.choices, default=StarSign.LIBRA)
+	pets = models.ChoiceField(max_length=1, choices=PetsInterest.choices, default=PetsInterest.NO)
+	religion = models.ChoiceField(max_length=10, choices=Religion.choices, default=Religion.NOT_STARTED)
+	personality = models.ChoiceField(max_length=1, choices=Personality.choices, default=Personality.INTROVERT)
 	
 	def __repr__(self):
 		return f'{self.personal_information.f_name}{self.personal_information.l_name}'
