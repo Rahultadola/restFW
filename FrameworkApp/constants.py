@@ -66,6 +66,6 @@ class Religion():
 	OTHER = "OTHER", __RT__("Other")
 
 class Personality():
-	INTROVERT = "INTROVERT", __RT__("Introvert")
-	EXTROVERT = "EXTROVERT", __RT__("Extrovert")
-	AMBIVERT = "AMBIVERT", __RT__("Ambivert")
+	INTROVERT = "I", __RT__("Introvert")
+	EXTROVERT = "E", __RT__("Extrovert")
+	AMBIVERT = "A", __RT__("Ambivert")
