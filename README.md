@@ -1,1 +1,1 @@
-Let create a dating app
+Trying a hand on dating application
